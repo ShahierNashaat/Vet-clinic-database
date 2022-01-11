@@ -11,3 +11,6 @@ create table animals (
 	neutered boolean,
 	weight_kg decimal
 )
+
+-- Add a column species of type string to your animals table.
+alter table animals add species varchar(200);
