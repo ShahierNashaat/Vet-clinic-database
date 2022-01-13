@@ -43,3 +43,32 @@ alter table animals add constraint fk_species foreign key(species_id) references
 -- -- Add column owner_id which is a foreign key referencing the owners table
 alter table animals add column owner_id integer;
 alter table animals add constraint fk_owners foreign key(owner_id) references owners(id);
+
+-- Create a table named vets
+create table vets (
+	id integer generated always as identity primary key,
+	name varchar(200),
+	age integer,
+	date_of_graduation date
+);
+
+-- Create a "join table" called specializations to handle this relationship 
+-- between the tables species and vets.
+create table specializations (
+	species_id integer,
+	vets_id integer,
+	constraint fk_species foreign key(species_id) references species(id),
+	constraint fk_vets foreign key(vets_id) references vets(id),
+	primary key(species_id, vets_id)
+);
+
+-- Create a "join table" called visits to handle this relationship
+-- between the tables animals and vets.
+create table visits (
+	animals_id integer,
+	vets_id integer,
+	date_of_visits date,
+	constraint fk_animals foreign key(animals_id) references animals(id),
+	constraint fk_vets foreign key(vets_id) references vets(id),
+	primary key(animals_id, vets_id, date_of_visits)
+);
