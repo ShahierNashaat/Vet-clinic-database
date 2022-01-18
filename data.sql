@@ -215,7 +215,7 @@ insert into specializations (species_id, vets_id) values
 -- -- Blossom visited Stephanie Mendez on May 24th, 2020.
 -- -- Blossom visited William Tatcher on Jan 11th, 2021.
 
-insert into visits (animals_id, vets_id, date_of_visits) values 
+insert into visits (animals_id, vets_id, date_of_visit) values 
 ((select id from animals where name = 'Agumon'), (select id from vets where name = 'William Tatcher'), '2020-5-24'),
 ((select id from animals where name = 'Agumon'), (select id from vets where name = 'Stephanie Mendez'), '2020-7-22'),
 ((select id from animals where name = 'Gabumon'), (select id from vets where name = 'Jack Harkness'), '2021-2-2'),

@@ -67,8 +67,8 @@ create table specializations (
 create table visits (
 	animals_id integer,
 	vets_id integer,
-	date_of_visits date,
+	date_of_visit date,
 	constraint fk_animals foreign key(animals_id) references animals(id),
 	constraint fk_vets foreign key(vets_id) references vets(id),
-	primary key(animals_id, vets_id, date_of_visits)
+	primary key(animals_id, vets_id, date_of_visit)
 );
